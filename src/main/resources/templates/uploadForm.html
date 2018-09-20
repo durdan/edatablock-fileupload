@@ -1,0 +1,33 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+	<div th:if="${message}">
+		<h2 th:text="${message}"/>
+	</div>
+
+	<div>
+		<form method="POST" enctype="multipart/form-data" action="/">
+			<table>
+				<tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+				<tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+			</table>
+		</form>
+	</div>
+
+	<div>
+		<ul>
+			<li th:each="file : ${files}">
+				<form th:action="@{/addTemplate}"
+					   method="get">
+					<input type="hidden" name="fileName" th:value="${file}"/>
+					<a th:href="${file}" th:text="${file}" />
+					<input type="submit" value="choose File" />
+
+				</form>
+
+			</li>
+		</ul>
+	</div>
+
+</body>
+</html>

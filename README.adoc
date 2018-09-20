@@ -1,0 +1,22 @@
+Change following properties
+For RPAproject following are the url
+URL_RPAPROJECT_LOGIN=http://localhost:9000/api/authenticate
+URL_RPAPROJECT=http://localhost:9000/api/clients
+
+this will run on following port
+server.port=8090
+
+mvn clean install to build the project
+run java -jar ./target/edatablock-fileupload-0.1.0.jar
+
+Use the following url to access the application
+http://localhost:8090/
+
+Feature :
+
+1. upload the file
+2. select the rectangle co-ordinate to create the template
+3. It will call rpa api to save template details
+
+
+

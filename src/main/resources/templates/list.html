@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Captured Field List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/template/css/style.css}"/>
+</head>
+<body>
+
+<div>
+    <table border="1">
+        <tr>
+            <th>MinX</th>
+            <th>MinY</th>
+            <th>MaxX</th>
+            <th>MaxY</th>
+        </tr>
+        <tr th:each ="selectionList : ${selectionList}">
+            <td th:utext="${selectionList.fieldZoneMinX}">...</td>
+            <td th:utext="${selectionList.fieldZoneMinY}">...</td>
+            <td th:utext="${selectionList.fieldZoneMaxX}">...</td>
+            <td th:utext="${selectionList.fieldZoneMaxY}">...</td>
+            <td th:utext="${selectionList.fileName}">...</td>
+
+        </tr>
+    </table>
+    <h1>Selectd List</h1>
+    <!--<a href="addTemplate">Add Template</a>-->
+    <a th:href="@{addTemplate(fileName=${selectionList.get(1).fileName})}" th:text="${selectionList.get(1).fileName}">Order ID</a>
+    <br/><br/>
+</div>
+</body>
+</html>
