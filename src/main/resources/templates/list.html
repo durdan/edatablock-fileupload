@@ -10,6 +10,7 @@
 <div>
     <table border="1">
         <tr>
+            <th>Key</th>
             <th>MinX</th>
             <th>MinY</th>
             <th>MaxX</th>
@@ -19,6 +20,7 @@
             <th>fileName</th>
         </tr>
         <tr th:each ="selectionList : ${selectionList}">
+            <td th:utext="${selectionList.key}">...</td>
             <td th:utext="${selectionList.fieldZoneMinX}">...</td>
             <td th:utext="${selectionList.fieldZoneMinY}">...</td>
             <td th:utext="${selectionList.fieldZoneMaxX}">...</td>
@@ -31,8 +33,22 @@
     </table>
     <h1>Selectd List</h1>
     <!--<a href="addTemplate">Add Template</a>-->
-    <a th:href="@{addTemplate(fileName=${selectionList.get(0).fileName},doOCR='No')}" th:text="${selectionList.get(0).fileName}">Order ID</a>
-    <a th:href="@{addTemplate(fileName=${selectionList.get(0).fileName},doOCR='Yes')}" th:text="DoOCR">Order ID</a>
+
+
+    <div>
+        <table border="1">
+
+            <tr> <a th:href="@{addTemplate(fileName=${selectionList.get(0).fileName},doOCR='No')}" th:text="${selectionList.get(0).fileName}">Order ID</a>
+                <br/><br/>
+            </tr>
+            <tr> <a th:href="@{addTemplate(fileName=${selectionList.get(0).fileName},doOCR='Yes')}" th:text="DoOCR">Do OCR</a>
+                <br/><br/>
+            </tr>
+            <tr><br/><br/>
+                <a th:href="@{destroy}" text="Destroy Current Sessions">Destroy All Files and Current Sessions</a>
+            </tr>
+        </table>
+    </div>
     <br/><br/>
 </div>
 </body>

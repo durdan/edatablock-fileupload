@@ -74,7 +74,7 @@
 </head>
 <body>
 
-<table>
+<table border="2">
     <tr>
         <td>
             <div>
@@ -84,15 +84,32 @@
 
             </div>
         </td>
+        <div th:if="${ocrData!=null}">
         <td valign="top">
-            <input id="ocrButton" type="button" value="OCR"/>
+            <div>
+                <table border="1">
+                    <tr>
+                        <th>Key</th>
+                        <th>value</th>
+                        <th>Location</th>
+                        <th>File</th>
+                        <th>Click Here</th>
 
-            <br/><br/>
+                    </tr>
+                    <tr th:each ="ocrData : ${ocrData}">
+                        <td th:utext="${ocrData.key}">...</td>
+                        <td th:utext="${ocrData.value.getValue()}">...</td>
+                        <td th:utext="${ocrData.value.getLocation()}">...</td>
+                        <td th:utext="${ocrData.value.getFileName()}">...</td>
+                        <td><a th:href="@{addTemplate(fileName=${ocrData.value.getFileName()},doOCR='No')}" text="Click here return to this file">Click here</a></td>
 
-            <!--<textarea id="ocrResult">-->
-                        <!--${ocrResult}-->
-                    <!--</textarea>-->
+                    </tr>
+                </table>
+                <a th:href="@{destroy}" text="Destroy Current Sessions">Destroy All Files and Current Sessions</a>
+                </div>
+
         </td>
+        </div>
     </tr>
 </table>
 
@@ -104,27 +121,30 @@
           th:object="${templateForm}" method="POST">
         <div class="inline-labels">
             <label>FileName
-                <input type="text" size="4" th:field="*{fileName}" id="filename" name="filename" />
+                <input type="text" size="20" th:field="*{fileName}" id="filename" name="filename" />
             </label>
-            <label>X1
-                <input type="text" size="4" th:field="*{fieldZoneMinX}" id="x1" name="x1" />
+            <label>Field Name
+                <input type="text" size="20" th:field="*{key}" id="key" name="key" />
             </label>
-            <label>
-                Y1 <input type="text" size="4" th:field="*{fieldZoneMinY}" id="y1" name="y1" />
-            </label>
-            <label>
-                X2 <input type="text" size="4" th:field="*{fieldZoneMaxX}" id="x2" name="x2" />
+            <label>X1x
+                <input type="text" size="20" th:field="*{fieldZoneMinX}" id="x1" name="x1" />
             </label>
             <label>
-                Y2 <input type="text" size="4" th:field="*{fieldZoneMaxY}" id="y2" name="y2" />
+                Y1 <input type="text" size="20" th:field="*{fieldZoneMinY}" id="y1" name="y1" />
+            </label>
+            <label>
+                X2 <input type="text" size="20" th:field="*{fieldZoneMaxX}" id="x2" name="x2" />
+            </label>
+            <label>
+                Y2 <input type="text" size="20" th:field="*{fieldZoneMaxY}" id="y2" name="y2" />
             </label>
             <label>
                 <!--W <input type="text" size="4" id="width" name="width" />-->
-                W <input type="text" size="4" th:field="*{width}" id="width" name="width" />
+                W <input type="text" size="20" th:field="*{width}" id="width" name="width" />
             </label>
             <label>
                 <!--H <input type="text" size="4" id="height" name="height" />-->
-                H <input type="text" size="4" th:field="*{height}" id="height" name="height" />
+                H <input type="text" size="20" th:field="*{height}" id="height" name="height" />
             </label>
             <input type="submit" value="create" />
         </div>

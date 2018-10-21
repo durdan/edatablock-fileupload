@@ -16,6 +16,9 @@ public class TemplateForm {
 
     private Double width;
 
+
+    private String key;
+
     public Double getWidth() {
         return width;
     }
@@ -39,6 +42,16 @@ public class TemplateForm {
 
 
     private String fieldValidationRule;
+
+
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
 
     public String getFileName() {
         return fileName;

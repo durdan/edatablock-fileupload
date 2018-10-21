@@ -1,5 +1,6 @@
 package com.edatablock.fileupload;
 
+import com.edatablock.util.PDFUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -11,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.stream.Collectors;
 
@@ -47,7 +49,16 @@ public class FileUploadController {
     @PostMapping("/")
     public String handleFileUpload(@RequestParam("file") MultipartFile file,
             RedirectAttributes redirectAttributes) {
+        System.out.println("File Name"+file.getOriginalFilename()+"     "+file);
 
+        if (file.getOriginalFilename().toString().toLowerCase().contains("pdf")) {
+            try {
+
+                PDFUtil.generateImageFromPDF(file, "png");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         storageService.store(file);
         redirectAttributes.addFlashAttribute("message",
                 "You successfully uploaded " + file.getOriginalFilename() + "!");

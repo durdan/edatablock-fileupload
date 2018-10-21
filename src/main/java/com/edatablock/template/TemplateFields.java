@@ -13,6 +13,7 @@ public class TemplateFields implements Serializable {
 
 
     private String fileName;
+    private String Key;
 
     private Double fieldZoneMinX;
 
@@ -49,8 +50,9 @@ public class TemplateFields implements Serializable {
         this.height = height;
     }
 
-    public TemplateFields(String fileName, Double fieldZoneMinX, Double fieldZoneMinY, Double fieldZoneMaxX, Double fieldZoneMaxY, Double width, Double height) {
+    public TemplateFields(String Key,String fileName, Double fieldZoneMinX, Double fieldZoneMinY, Double fieldZoneMaxX, Double fieldZoneMaxY, Double width, Double height) {
         this.fileName = fileName;
+        this.Key=Key;
         this.fieldZoneMinX = fieldZoneMinX;
         this.fieldZoneMinY = fieldZoneMinY;
         this.fieldZoneMaxX = fieldZoneMaxX;
@@ -61,6 +63,13 @@ public class TemplateFields implements Serializable {
 
     }
 
+    public String getKey() {
+        return Key;
+    }
+
+    public void setKey(String key) {
+        Key = key;
+    }
 
     public String getFileName() {
         return fileName;
@@ -153,37 +162,36 @@ public class TemplateFields implements Serializable {
         this.fieldValidationRule = fieldValidationRule;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof TemplateFields)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         TemplateFields that = (TemplateFields) o;
-        return Objects.equals(getFileName(), that.getFileName()) &&
-                Objects.equals(getFieldZoneMinX(), that.getFieldZoneMinX()) &&
-                Objects.equals(getFieldZoneMinY(), that.getFieldZoneMinY()) &&
-                Objects.equals(getFieldZoneMaxX(), that.getFieldZoneMaxX()) &&
-                Objects.equals(getFieldZoneMaxY(), that.getFieldZoneMaxY()) &&
-                Objects.equals(getFieldValidationRequire(), that.getFieldValidationRequire()) &&
-                Objects.equals(getFieldValidationRule(), that.getFieldValidationRule());
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(getFileName(), getFieldZoneMinX(), getFieldZoneMinY(), getFieldZoneMaxX(), getFieldZoneMaxY(), getFieldValidationRequire(), getFieldValidationRule());
+        return Objects.equals(fileName, that.fileName) &&
+                Objects.equals(Key, that.Key) &&
+                Objects.equals(fieldZoneMinX, that.fieldZoneMinX) &&
+                Objects.equals(fieldZoneMinY, that.fieldZoneMinY) &&
+                Objects.equals(fieldZoneMaxX, that.fieldZoneMaxX) &&
+                Objects.equals(fieldZoneMaxY, that.fieldZoneMaxY) &&
+                Objects.equals(fieldValidationRequire, that.fieldValidationRequire) &&
+                Objects.equals(fieldValidationRule, that.fieldValidationRule) &&
+                Objects.equals(width, that.width) &&
+                Objects.equals(height, that.height);
     }
 
     @Override
     public String toString() {
         return "TemplateFields{" +
                 "fileName='" + fileName + '\'' +
+                ", Key='" + Key + '\'' +
                 ", fieldZoneMinX=" + fieldZoneMinX +
                 ", fieldZoneMinY=" + fieldZoneMinY +
                 ", fieldZoneMaxX=" + fieldZoneMaxX +
                 ", fieldZoneMaxY=" + fieldZoneMaxY +
                 ", fieldValidationRequire=" + fieldValidationRequire +
                 ", fieldValidationRule='" + fieldValidationRule + '\'' +
+                ", width=" + width +
+                ", height=" + height +
                 '}';
     }
 }

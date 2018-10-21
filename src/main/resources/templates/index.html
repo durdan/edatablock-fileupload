@@ -8,16 +8,11 @@
 <body>
 <h1>Welcome</h1>
 <h2 th:utext="${message}">..!..</h2>
+<img th:src="@{/template/images/logo.png}" width="212" height="47" alt="eDATABLOCK">
 
-<!--
 
-   In Thymeleaf the equivalent of
-   JSP's ${pageContext.request.contextPath}/edit.html
-   would be @{/edit.html}
-
-   -->
-
-<a th:href="@{/static/template/images}">Create Template</a>
+<a href="/">Create Template</a>
+<a th:href="@{destroy}" text="Destroy All Files and Current Sessions">Destroy All Files and Current Sessions</a>
 
 </body>
 
