@@ -18,6 +18,8 @@ public class Application {
             SpringApplication.run(Application.class, args);
 //        ApplicationContext app = SpringApplication.run(Application .class, args);//init the context
 
+       // getWordWithZone();
+
     }
 
     @Bean
@@ -27,12 +29,12 @@ public class Application {
         String url = "http://localhost:9000/api/authenticate";
         String url2 = "http://localhost:9000/api/clients/";
 
-        String authorizationString = rpaJwtClient.postLogin(username, password);
-
-        System.out.println("Authorization String=" + authorizationString);
+//        String authorizationString = rpaJwtClient.postLogin(username, password);
+//
+//        System.out.println("Authorization String=" + authorizationString);
 
         // Call REST API:
-        rpaJwtClient.callRPARESTApi(url2, authorizationString);
+       // rpaJwtClient.callRPARESTApi(url2, authorizationString);
 
         return (args) -> {
             storageService.deleteAll();

@@ -30,12 +30,35 @@ public class TemplateFields implements Serializable {
 
     private String fieldValidationRule;
 
-    public TemplateFields(String fileName, Double fieldZoneMinX, Double fieldZoneMinY, Double fieldZoneMaxX, Double fieldZoneMaxY) {
+    private Double width;
+    private Double height;
+
+    public Double getWidth() {
+        return width;
+    }
+
+    public void setWidth(Double width) {
+        this.width = width;
+    }
+
+    public Double getHeight() {
+        return height;
+    }
+
+    public void setHeight(Double height) {
+        this.height = height;
+    }
+
+    public TemplateFields(String fileName, Double fieldZoneMinX, Double fieldZoneMinY, Double fieldZoneMaxX, Double fieldZoneMaxY, Double width, Double height) {
         this.fileName = fileName;
         this.fieldZoneMinX = fieldZoneMinX;
         this.fieldZoneMinY = fieldZoneMinY;
         this.fieldZoneMaxX = fieldZoneMaxX;
         this.fieldZoneMaxY = fieldZoneMaxY;
+        this.width=width;
+        this.height=height;
+
+
     }
 
 

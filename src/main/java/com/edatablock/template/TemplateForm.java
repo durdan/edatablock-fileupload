@@ -14,6 +14,26 @@ public class TemplateForm {
 
     private Double fieldZoneMaxY;
 
+    private Double width;
+
+    public Double getWidth() {
+        return width;
+    }
+
+    public void setWidth(Double width) {
+        this.width = width;
+    }
+
+    public Double getHeight() {
+        return height;
+    }
+
+    public void setHeight(Double height) {
+        this.height = height;
+    }
+
+    private Double height;
+
 
     private Integer fieldValidationRequire;
 

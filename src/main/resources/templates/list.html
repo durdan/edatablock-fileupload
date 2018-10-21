@@ -14,19 +14,25 @@
             <th>MinY</th>
             <th>MaxX</th>
             <th>MaxY</th>
+            <th>Width</th>
+            <th>Height</th>
+            <th>fileName</th>
         </tr>
         <tr th:each ="selectionList : ${selectionList}">
             <td th:utext="${selectionList.fieldZoneMinX}">...</td>
             <td th:utext="${selectionList.fieldZoneMinY}">...</td>
             <td th:utext="${selectionList.fieldZoneMaxX}">...</td>
             <td th:utext="${selectionList.fieldZoneMaxY}">...</td>
+            <td th:utext="${selectionList.width}">...</td>
+            <td th:utext="${selectionList.height}">...</td>
             <td th:utext="${selectionList.fileName}">...</td>
 
         </tr>
     </table>
     <h1>Selectd List</h1>
     <!--<a href="addTemplate">Add Template</a>-->
-    <a th:href="@{addTemplate(fileName=${selectionList.get(1).fileName})}" th:text="${selectionList.get(1).fileName}">Order ID</a>
+    <a th:href="@{addTemplate(fileName=${selectionList.get(0).fileName},doOCR='No')}" th:text="${selectionList.get(0).fileName}">Order ID</a>
+    <a th:href="@{addTemplate(fileName=${selectionList.get(0).fileName},doOCR='Yes')}" th:text="DoOCR">Order ID</a>
     <br/><br/>
 </div>
 </body>

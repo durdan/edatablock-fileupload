@@ -78,7 +78,9 @@
     <tr>
         <td>
             <div>
-                <img th:src="@{/template/images/1.png}" id="target"/>
+                <!--<img th:src="@{/template/images/image-ravi.png}" id="target"/>-->
+                <img th:src="${templateForm.getFileName()}" id="target">
+
 
             </div>
         </td>
@@ -117,10 +119,12 @@
                 Y2 <input type="text" size="4" th:field="*{fieldZoneMaxY}" id="y2" name="y2" />
             </label>
             <label>
-                W <input type="text" size="4" id="width" name="width" />
+                <!--W <input type="text" size="4" id="width" name="width" />-->
+                W <input type="text" size="4" th:field="*{width}" id="width" name="width" />
             </label>
             <label>
-                H <input type="text" size="4" id="height" name="height" />
+                <!--H <input type="text" size="4" id="height" name="height" />-->
+                H <input type="text" size="4" th:field="*{height}" id="height" name="height" />
             </label>
             <input type="submit" value="create" />
         </div>

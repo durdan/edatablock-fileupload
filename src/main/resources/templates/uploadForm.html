@@ -20,7 +20,9 @@
 				<form th:action="@{/addTemplate}"
 					   method="get">
 					<input type="hidden" name="fileName" th:value="${file}"/>
+					<input type="hidden" name="doOCR" th:value="No"/>
 					<a th:href="${file}" th:text="${file}" />
+
 					<input type="submit" value="choose File" />
 
 				</form>
